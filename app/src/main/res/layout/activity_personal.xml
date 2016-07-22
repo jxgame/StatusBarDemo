@@ -22,16 +22,20 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/activity_personal_vp_background"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/topinfo_ban_bg" />
 
                 <android.support.v4.view.ViewPager
+                    android:id="@+id/activity_personal_vp"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
                     android:background="@android:color/transparent" />
 
                 <com.example.macuser.statusbardemo.view.PagerSlidingTabStrip
+                    android:id="@+id/activity_personal_psts"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
@@ -46,6 +50,7 @@
             </RelativeLayout>
 
             <com.example.macuser.statusbardemo.view.ListViewInScrollView
+                android:id="@+id/activity_personal_lv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
