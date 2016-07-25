@@ -1,5 +1,6 @@
 package com.example.macuser.statusbardemo.activity;
 
+import android.animation.ArgbEvaluator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ import com.example.macuser.statusbardemo.model.SongListModel;
 import com.example.macuser.statusbardemo.view.AlphaTitleScrollView;
 import com.example.macuser.statusbardemo.view.ListViewInScrollView;
 import com.example.macuser.statusbardemo.view.PagerSlidingTabStrip;
+import com.example.macuser.statusbardemo.view.StatusBarCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +60,7 @@ public class PersonalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal);
         ButterKnife.bind(this);
+        StatusBarCompat.initStatus(this);
         initViews();
         initData();
         setlisteners();
@@ -67,6 +70,26 @@ public class PersonalActivity extends AppCompatActivity {
         activityPersonalAlphaScroll.setOnAlphaTitleScrollChangedListener(new AlphaTitleScrollView.OnAlphaTitleScrollChangedListener() {
             @Override
             public void onAlphaTitleScroll(int alpha, float alphaPercent) {
+
+            }
+        });
+        final ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+        activityPersonalVp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if (position % 2 == 0) {
+                    activityPersonalVp.setBackgroundColor((Integer) argbEvaluator.evaluate(positionOffset, 0,
+                            getResources().getColor(R.color.viewpager_background)));
+                }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
 
             }
         });
