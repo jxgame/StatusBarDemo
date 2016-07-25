@@ -5,3 +5,6 @@
 * 用onMeasure计算自身高度的listview，子布局里不能用RelativeLayout。 
 这里以后可以考虑用recycleview;
 
+## 依赖项目
+* [butterknife](https://github.com/JakeWharton/butterknife) 
+* [fresco](https://github.com/facebook/fresco) 
