@@ -9,16 +9,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.macuser.statusbardemo.MainActivity">
 
-    <Button
-        android:id="@+id/activity_main_hi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
 
     <Button
         android:id="@+id/activity_main_btn"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_below="@+id/activity_main_hi"
-        android:background="@android:color/black" />
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:text="press" />
 </RelativeLayout>

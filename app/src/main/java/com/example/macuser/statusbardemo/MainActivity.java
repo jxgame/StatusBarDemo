@@ -15,8 +15,6 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.activity_main_hi)
-    Button activityMainHi;
     @BindView(R.id.activity_main_btn)
     Button activityMainBtn;
 

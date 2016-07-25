@@ -22,6 +22,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+;
+
 /**
  * Created by macuser on 16/7/22.
  **/
