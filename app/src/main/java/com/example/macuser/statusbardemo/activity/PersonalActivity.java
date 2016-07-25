@@ -1,11 +1,12 @@
 package com.example.macuser.statusbardemo.activity;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.example.macuser.statusbardemo.R;
 import com.example.macuser.statusbardemo.adapter.PersonalSongListAdapter;
@@ -13,6 +14,7 @@ import com.example.macuser.statusbardemo.adapter.PersonalViewPagerAdapter;
 import com.example.macuser.statusbardemo.fragment.FragmentPersonalA;
 import com.example.macuser.statusbardemo.fragment.FragmentPersonalB;
 import com.example.macuser.statusbardemo.model.SongListModel;
+import com.example.macuser.statusbardemo.view.AlphaTitleScrollView;
 import com.example.macuser.statusbardemo.view.ListViewInScrollView;
 import com.example.macuser.statusbardemo.view.PagerSlidingTabStrip;
 
@@ -38,6 +40,10 @@ public class PersonalActivity extends AppCompatActivity {
     PagerSlidingTabStrip activityPersonalPsts;
     @BindView(R.id.activity_personal_lv)
     ListViewInScrollView activityPersonalLv;
+    @BindView(R.id.activity_personal_alpha_scroll)
+    AlphaTitleScrollView activityPersonalAlphaScroll;
+    @BindView(R.id.activity_personal_head)
+    RelativeLayout activityPersonalHead;
     private List<Fragment> mFragmentDates;
     private FragmentPersonalA fragmentPersonalA;
     private FragmentPersonalB fragmentPersonalB;
@@ -46,16 +52,29 @@ public class PersonalActivity extends AppCompatActivity {
     private PersonalSongListAdapter personalSongListAdapter;
     private ArrayList<SongListModel> listData;
 
+
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal);
         ButterKnife.bind(this);
         initViews();
         initData();
+        setlisteners();
+    }
+
+    private void setlisteners() {
+        activityPersonalAlphaScroll.setOnAlphaTitleScrollChangedListener(new AlphaTitleScrollView.OnAlphaTitleScrollChangedListener() {
+            @Override
+            public void onAlphaTitleScroll(int alpha, float alphaPercent) {
+
+            }
+        });
     }
 
     private void initViews() {
+        activityPersonalAlphaScroll.setTitleAndHead(activityPersonalHead, activityPersonalVpBackground);
+        activityPersonalHead.getBackground().setAlpha(0);
         mFragmentDates = new ArrayList<>();
         fragmentPersonalA = new FragmentPersonalA();
         fragmentPersonalB = new FragmentPersonalB();
@@ -69,6 +88,7 @@ public class PersonalActivity extends AppCompatActivity {
         listData = new ArrayList<>();
         personalSongListAdapter = new PersonalSongListAdapter(PersonalActivity.this, listData);
         activityPersonalLv.setAdapter(personalSongListAdapter);
+        activityPersonalAlphaScroll.smoothScrollTo(0, 0);
     }
 
     private void initData() {

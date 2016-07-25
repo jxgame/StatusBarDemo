@@ -4,22 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="true"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true">
 
     <com.example.macuser.statusbardemo.view.AlphaTitleScrollView
+        android:id="@+id/activity_personal_alpha_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/activity_personal_vp_background"
@@ -49,6 +49,18 @@
                 </com.example.macuser.statusbardemo.view.PagerSlidingTabStrip>
             </RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:color/holo_blue_light">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1234" />
+
+            </LinearLayout>
+
             <com.example.macuser.statusbardemo.view.ListViewInScrollView
                 android:id="@+id/activity_personal_lv"
                 android:layout_width="wrap_content"
@@ -58,12 +70,13 @@
 
     </com.example.macuser.statusbardemo.view.AlphaTitleScrollView>
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/activity_personal_head"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@android:color/darker_gray">
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
