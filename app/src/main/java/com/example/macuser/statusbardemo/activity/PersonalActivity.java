@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.example.macuser.statusbardemo.R;
+import com.example.macuser.statusbardemo.adapter.PersonalSongListAdapter;
 import com.example.macuser.statusbardemo.adapter.PersonalViewPagerAdapter;
 import com.example.macuser.statusbardemo.fragment.FragmentPersonalA;
 import com.example.macuser.statusbardemo.fragment.FragmentPersonalB;
+import com.example.macuser.statusbardemo.model.SongListModel;
 import com.example.macuser.statusbardemo.view.ListViewInScrollView;
 import com.example.macuser.statusbardemo.view.PagerSlidingTabStrip;
 
@@ -39,6 +41,8 @@ public class PersonalActivity extends AppCompatActivity {
     private FragmentPersonalB fragmentPersonalB;
 
     private PersonalViewPagerAdapter personalViewPagerAdapter;
+    private PersonalSongListAdapter personalSongListAdapter;
+    private ArrayList<SongListModel> listData;
 
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
@@ -46,6 +50,7 @@ public class PersonalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_personal);
         ButterKnife.bind(this);
         initViews();
+        initData();
     }
 
     private void initViews() {
@@ -59,6 +64,21 @@ public class PersonalActivity extends AppCompatActivity {
         activityPersonalPsts.setShouldExpand(true);
         activityPersonalPsts.setViewPager(activityPersonalVp);
         activityPersonalVp.setCurrentItem(0, false);
+        listData = new ArrayList<>();
+        personalSongListAdapter = new PersonalSongListAdapter(PersonalActivity.this, listData);
+        activityPersonalLv.setAdapter(personalSongListAdapter);
+    }
+
+    private void initData() {
+        for (int i = 0; i < 20; i++) {
+            SongListModel model = new SongListModel();
+            model.setImgurl("");
+            model.setListname("k-pop" + i);
+            model.setPlaycount("歌单" + i);
+            listData.add(model);
+
+        }
+        personalSongListAdapter.notifyDataSetChanged();
     }
 
 }
