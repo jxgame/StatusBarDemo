@@ -10,3 +10,4 @@
 * [StatusBarCompat](http://blog.csdn.net/jdsjlzx/article/details/41643587)
 * [butterknife](https://github.com/JakeWharton/butterknife) 
 * [fresco](https://github.com/facebook/fresco) 
+* [glide](https://github.com/bumptech/glide) 
