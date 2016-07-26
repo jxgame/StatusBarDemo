@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.macuser.statusbardemo.R;
-import com.example.macuser.statusbardemo.view.GlideRoundTransform;
+import com.example.macuser.statusbardemo.glides.GlideRoundTransform;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

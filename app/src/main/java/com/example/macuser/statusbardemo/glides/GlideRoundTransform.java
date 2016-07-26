@@ -1,4 +1,4 @@
-package com.example.macuser.statusbardemo.view;
+package com.example.macuser.statusbardemo.glides;
 
 import android.content.Context;
 import android.content.res.Resources;
