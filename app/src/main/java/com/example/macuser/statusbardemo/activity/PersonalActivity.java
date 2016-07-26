@@ -117,7 +117,7 @@ public class PersonalActivity extends AppCompatActivity {
     private void initData() {
         for (int i = 0; i < 20; i++) {
             SongListModel model = new SongListModel();
-            model.setImgurl("");
+            model.setImgurl("http://img2015.zdface.com/20160719/42e46a3cd19514593eeb54f54b0f86fa.jpg");
             model.setListname("k-pop" + i);
             model.setPlaycount("歌单" + i);
             listData.add(model);

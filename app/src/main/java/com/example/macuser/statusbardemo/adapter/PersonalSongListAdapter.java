@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.macuser.statusbardemo.R;
 import com.example.macuser.statusbardemo.model.SongListModel;
 
@@ -62,19 +64,25 @@ public class PersonalSongListAdapter extends BaseAdapter {
         if (model != null) {
             holder.itemSonglistName.setText(model.getListname());
             holder.itemSonglistCount.setText(model.getPlaycount());
+            Glide.with(context).load(model.getImgurl())
+//            .transform(new GlideRoundTransform(context, 5))
+                    .into(holder.songListAvatar);
         }
         return convertView;
     }
 
 
-    class ViewHolder {
+    static class ViewHolder {
         @BindView(R.id.item_songlist_name)
         TextView itemSonglistName;
         @BindView(R.id.item_songlist_count)
         TextView itemSonglistCount;
+        @BindView(R.id.song_list_avatar)
+        ImageView songListAvatar;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }
     }
+
 }
